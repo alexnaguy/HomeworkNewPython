@@ -73,3 +73,29 @@ class Rectangle(Shape,ManagerFigures):
         print(f"Данная фигура: {self.__NAME}"
               f" c шириной: {self.__width} и высоой: {self.__height}\n")
 
+class Circle(Shape, ManagerFigures):
+    __NAME = "Круг"
+
+    def __init__(self, x: int, y: int, radius: float):
+        super().__init__(x, y)
+        self.__radius = radius
+
+    @property
+    def radius(self):
+        return self.__radius
+
+    radius.setter
+    def radius(self, radius):
+        self.__radius = radius
+
+    def show(self):
+        return self.__dict__
+
+    def info(self):
+        super().info()
+        print(f"Данная фигура: {self.__NAME}"
+              f" c радиусом: {self.__radius} \n")
+
+
+
+
