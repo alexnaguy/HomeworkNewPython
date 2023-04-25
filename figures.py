@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+from file_figures import *
 # Плоские фгуры
 class Shape:
     def __init__(self, x: int, y: int):
