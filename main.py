@@ -13,7 +13,7 @@ class RentCarService:
         return f" ID-номер машины:{self.__id}, марка: {self.__brand}, год: {self.__year}, цвет: {self.__color}"
 
 
-class PrintCarService():
+class PrintCarService:
     def __init__(self, id: int,date: str, time: str):
         self.__id = id
         self.__date = date
@@ -31,10 +31,33 @@ class CarInfoService:
         self.__year = year
         self.__color = color
         self.__power = power
+    @property
+    def id(self,):
+        return self.__id
+    def info_car(self, id: int, brand: str, year: int, color: str, power: int):
+
+
+
+
+
+
+
+
+
+
 
 
 class NotificationService:
-    pass
+    def __int__(self, id: int, brand: str, year: int, color: str, telephone: str):
+        self.__id = id
+        self.__brand = brand
+        self.__year = year
+        self.__color = color
+        self.__telephone = telephone
+
+    def send_sms(self,id: int, brand: str, year: int, color: str, power: int, telephone: str):
+        print(f"Смс сообщение отпрвлено на номер абонента {self.__telephone} : "
+              f"Ваш автомобиль {self.__brand}, {self.__year} года, {self.__color} цвета")
 
 class CarService:
     pass
