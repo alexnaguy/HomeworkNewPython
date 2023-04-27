@@ -10,7 +10,8 @@ class RentCarService:
 
 
     def __str__(self):
-        return f" ID-номер машины:{self.__id}, марка: {self.__brand}, год: {self.__year}, цвет: {self.__color}"
+        return f" ID-номер машины:{self.__id}, марка: {self.__brand}, год: {self.__year}," \
+               f" цвет: {self.__color}, мощность {self.__power}"
 
 
 class PrintCarService:
@@ -18,10 +19,11 @@ class PrintCarService:
         self.__id = id
         self.__date = date
         self.__time = time
-    def __str__(self):
-        return f"Заказ на броинрвоание:" \
-               f" Машина по ID-номеру:{self.__id},взята в аренду {self.__date} на время: {self.__time}"
 
+    @staticmethod
+    def print_car( id: int, date : str, time: str):
+        print( f"Заказ на броинрвоание:" \
+               f" Машина по ID-номеру:{id},взята в аренду {date} на время: {time}")
 
 
 class CarInfoService:
@@ -34,17 +36,7 @@ class CarInfoService:
     @property
     def id(self,):
         return self.__id
-    def info_car(self, id: int, brand: str, year: int, color: str, power: int):
-
-
-
-
-
-
-
-
-
-
+    #def info_car(self, id: int, brand: str, year: int, color: str, power: int):
 
 
 class NotificationService:
@@ -55,12 +47,23 @@ class NotificationService:
         self.__color = color
         self.__telephone = telephone
 
-    def send_sms(self,id: int, brand: str, year: int, color: str, power: int, telephone: str):
+    def send_sms(self,telephone, brand, year, color):
         print(f"Смс сообщение отпрвлено на номер абонента {self.__telephone} : "
               f"Ваш автомобиль {self.__brand}, {self.__year} года, {self.__color} цвета")
 
 class CarService:
-    pass
+    def __init__(self, id: int, brand: str):
+        self.__id = id
+        self.__brand = brand
+    @property
+    def id(self,):
+        return self.__id
+
+    #def info_number_car(self, id: int, brand: str ):
+
+
+
+
 
 
 
@@ -77,6 +80,12 @@ def execute_application():
     list_car.append(car4)
     for car in list_car:
         print(car)
+
+    PrintCarService.print_car(10001,"22.03.2023", "4 дня")
+    NotificationService.send_sms()
+
+
+
 
 
 
