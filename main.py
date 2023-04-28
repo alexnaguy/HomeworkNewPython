@@ -34,9 +34,9 @@ class CarInfoService:
         self.__color = color
         self.__power = power
     @staticmethod
-    def info_car(id: int, brand: str, year: int, color: str, power: int)
-        print(f" ID-номер автомобиля:{self.__id}, марка: {self.__brand}, год: {self.__year}," \
-               f" цвет: {self.__color}, мощность {self.__power} ")
+    def info_car(id: int, brand: str, year: int, color: str, power: int):
+        print(f" ID-номер автомобиля:{id}, марка: {brand}, год: {year}," \
+               f" цвет: {color}, мощность {power} ")
 
 
 
@@ -61,8 +61,17 @@ class CarService:
     @property
     def id(self,):
         return self.__id
+    @property
+    def brand(self):
+        return self.__brand
+    @staticmethod
+    def search_car(name: int, id: int, brand: str):
+        if name == id:
+            print(f"ID-номер {id}, марка {brand}")
 
-    #def info_number_car(self, id: int, brand: str ):
+
+
+
 
 
 
@@ -85,8 +94,11 @@ def execute_application():
     for car in list_car:
         print(car)
 
+
+
     PrintCarService.print_car(10001,"22.03.2023", "4 дня")
     NotificationService.send_sms("+7(952) 874 45 68","Mersedes",2023, "red")
+    CarInfoService.info_car(10001,"Renault Megane", 2019, "blue", 98)
 
 
 
