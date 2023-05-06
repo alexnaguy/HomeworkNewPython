@@ -107,6 +107,62 @@ class Point:
 
     def __hash__(self):
         return hash((self.__x, self.__y))
+
+# Задание 3.
+# Создайте класс Flat (квартира). Для данного класса реализуйте ряд
+# перегруженных операторов:
+# Проверка на равенство площадей квартир (операция ==);
+# Проверка на неравенство площадей квартир (операция !=);
+# Сравнение двух квартир по стоимости (операции >, <, <=, >=).
+
+class Flat:
+    def __init__(self, square: float):
+        self.__square = square
+        self.__cost = square * 75000
+
+    def __str__(self):
+        return f"square: {self.__square}, cost: {self.__cost}"
+
+#Равенство
+    def __eq__(self, other):
+        if isinstance(other, Flat):
+            return self.__square == other.__square
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# Неравенство
+    def __ne__(self, other):
+        if isinstance(other, Flat):
+            return self.__square != other.__square
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+
+# <
+    def __lt__(self, other):
+        if isinstance(other, Flat):
+            return self.__cost < other.__cost
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# <=
+    def __le__(self, other):
+        if isinstance(other, Flat):
+            return self.__cost <= other.__cost
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# >
+    def __gt__(self, other):
+        if isinstance(other, Flat):
+            return self.__cost > other.__cost
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# <=
+    def __ge__(self, other):
+        if isinstance(other, Flat):
+            return self.__cost >= other.__cost
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+    def __hash__(self):
+        return hash((self.__square, self.__cost))
+
 def execute_application:
     # Circle
     print(f"Circle:")
