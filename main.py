@@ -123,6 +123,19 @@ def execute_application:
     except TypeError as e:
         print(e)
 
+    print(f"Point:")
+    # Point
+    point1 = Point(2, 4)
+    point2 = Point(4, 6)
+    try:
+        print("Проверка на равенство:", point1 == point2)
+        print("Проверка на не равенство:", point1 != point2)
+        print("Проверка на меньше", point1 < point2)
+        print("Проверка на больше:", point1 > point2)
+        print("Проверка на меньше или равно:", point1 <= point2)
+        print("Проверка на больше или равно:", point1 >= point2)
+    except TypeError as e:
+        print(e)
 
 
 if __name__ == "__main__":
