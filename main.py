@@ -57,7 +57,20 @@ class Circle:
         return hash((self.__radius, self.__length))
 
 def execute_application:
-    pass
+    # Circle
+    print(f"Circle:")
+    circle1 = Circle(4)
+    circle2 = Circle(6)
+    circle1.check_radius(4)
+    try:
+        print("Проверка на равенство:", circle1 == circle2)
+        print("Проверка на не равенство:", circle1 != circle2)
+        print("Проверка на меньше", circle1 < circle2)
+        print("Проверка на больше:", circle1 > circle2)
+        print("Проверка на меньше или равно:", circle1 <= circle2)
+        print("Проверка на больше или равно:", circle1 >= circle2)
+    except TypeError as e:
+        print(e)
 
 if __name__ == "__main__":
     execute_application()
