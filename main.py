@@ -193,6 +193,20 @@ def execute_application:
     except TypeError as e:
         print(e)
 
+    print(f"Flat:")
+  # Flat
+    flat1 = Flat(45)
+    flat2 = Flat(30)
+    try:
+        print("Проверка на равенство:", flat1 == flat2)
+        print("Проверка на не равенство:", flat1 != flat2)
+        print("Проверка на меньше", flat1 < flat2)
+        print("Проверка на больше:", flat1 > flat2)
+        print("Проверка на меньше или равно:", flat1 <= flat2)
+        print("Проверка на больше или равно:", flat1 >= flat2)
+    except TypeError as e:
+        print(e)
+
 
 if __name__ == "__main__":
     execute_application()
