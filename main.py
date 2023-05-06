@@ -17,7 +17,44 @@ class Circle:
             raise InitializationValueError("Значение радиуса должно быть больше 0")
         return radius
 
+#Равенство
+    def __eq__(self, other):
+        if isinstance(other, Circle):
+            return self.__radius == other.__radius
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
 
+# Неравенство
+    def __ne__(self, other):
+        if isinstance(other, Circle):
+            return self.__radius != other.__radius
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# <
+    def __lt__(self, other):
+        if isinstance(other, Circle):
+            return self.__length < other.__length
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# <=
+    def __le__(self, other):
+        if isinstance(other, Circle):
+            return self.__length <= other.__length
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# >
+    def __gt__(self, other):
+        if isinstance(other, Circle):
+            return self.__length > other.__length
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# <=
+    def __ge__(self, other):
+        if isinstance(other, Circle):
+            return self.__length >= other.__length
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+    def __hash__(self):
+        return hash((self.__radius, self.__length))
 
 def execute_application:
     pass
