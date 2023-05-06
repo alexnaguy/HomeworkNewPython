@@ -56,6 +56,57 @@ class Circle:
     def __hash__(self):
         return hash((self.__radius, self.__length))
 
+# Задание 2.
+# Создайте класс Point (точка). Для данного класса реализуйте ряд
+# перегруженных операторов:
+# Проверка на равенство пар координат по осям X и Y (операция ==, !=);
+# Проверка сравнения пар координат (операции >, <, <=, >=);
+class Point:
+    def __init__(self, x: int, y: int):
+        self.__x = x
+        self.__y = y
+
+#Равенство
+    def __eq__(self, other):
+        if isinstance(other, Point):
+            return self.__x == other.__x and self.__y == other.__y
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+
+
+# Неравенство
+    def __ne__(self, other):
+        if isinstance(other, Point):
+            return self.__x != other.__x or self.__y != other.__y
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+
+# <
+    def __lt__(self, other):
+        if isinstance(other, Point):
+            return self.__x < other.__x or self.__y < other.__y
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# <=
+    def __le__(self, other):
+        if isinstance(other, Point):
+            return self.__x <= other.__x or self.__y <= other.__y
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# >
+    def __gt__(self, other):
+        if isinstance(other, Point):
+            return self.__x > other.__x or self.__y > other.__y
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+# <=
+    def __ge__(self, other):
+        if isinstance(other, Point):
+            return self.__x >= other.__x or self.__y >= other.__y
+        raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
+
+    def __hash__(self):
+        return hash((self.__x, self.__y))
 def execute_application:
     # Circle
     print(f"Circle:")
@@ -71,6 +122,8 @@ def execute_application:
         print("Проверка на больше или равно:", circle1 >= circle2)
     except TypeError as e:
         print(e)
+
+
 
 if __name__ == "__main__":
     execute_application()
