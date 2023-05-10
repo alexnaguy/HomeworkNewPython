@@ -17,7 +17,16 @@ class Payments(ABC):
     @abstractmethod
     def payPhoneNumber():
         pass
-
+class InternetPaymentService(Payments):
+    @staticmethod
+    def payWebMoney():
+        print(f" Оплата производится через Электронные деньги")
+    @staticmethod
+    def payCreditCard():
+        print(f"Оплата производится  по банковской карте")
+    @staticmethod
+    def payPhoneNumber():
+        print(f"Оплата производится  по номеру телефона")
 
 
 
