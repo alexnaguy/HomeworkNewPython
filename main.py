@@ -29,7 +29,13 @@ class InternetPaymentService(Payments):
         print(f"Оплата производится  по номеру телефона")
 
 
+class TerminalPaymentService(ABC):
 
+    def payWebMoney():
+        print(f" Оплата производится через Электронные деньги")
+
+    def payCreditCard():
+        print(f"Оплата производится  по банковской карте")
 
 
 
