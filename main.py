@@ -47,7 +47,17 @@ class Authentication:
     def doAauthentication(self, login: str):
         pass
 
+class AnonymousAuthentication:
+    def doAauthentication(self,login: str):
+        print(f"Анонимная регистрация пользователя {login}")
 
+class GithubAuthentication:
+    def doAuthentication(self,login: str):
+        print(f"Регистрация на GitHub пользователя {login}")
+
+class FacebookAuthentication:
+    def doAuthentication(self,login: str):
+        print(f"Регистрация на Faebook пользователя {login}")
 
 def execute_application:
 
