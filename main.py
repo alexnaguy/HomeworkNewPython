@@ -59,6 +59,13 @@ class FacebookAuthentication:
     def doAuthentication(self,login: str):
         print(f"Регистрация на Faebook пользователя {login}")
 
+class Permissions:
+    def __init__(self, auth: AnonymousAuthentication):
+        self.__auth = copy(auth)
+
+    def getPermissions(self, login: str):
+        self.__auth.doAauthentication(login)
+
 def execute_application:
 
 
