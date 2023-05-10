@@ -42,9 +42,10 @@ class TerminalPaymentService(ABC):
 
 
 def execute_application:
-    pass
 
 
+    InternetPaymentService.payPhoneNumber()
+    TerminalPaymentService.payCreditCard()
 
 if __name__ == "__main__":
     execute_application()
