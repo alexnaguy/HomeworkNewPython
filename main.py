@@ -72,5 +72,12 @@ def execute_application:
     InternetPaymentService.payPhoneNumber()
     TerminalPaymentService.payCreditCard()
 
+    user_anon = AnonymousAuthentication()
+    user_anon.doAauthentication("Anon")
+    print(f"После разрешения:")
+
+    user = Permissions(user_anon)
+    user.getPermissions("Alex")
+
 if __name__ == "__main__":
     execute_application()
