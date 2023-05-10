@@ -37,7 +37,15 @@ class TerminalPaymentService(ABC):
     def payCreditCard():
         print(f"Оплата производится  по банковской карте")
 
+#Задание 2
+# Рассмотрим принцип инверсии зависимостей. Исправьте следующий код таким
+# # образом, чтобы классы и верхних, и нижних уровней зависели от одних и тех же
+# # абстракций, а не от конкретных реализаций.
 
+class Authentication:
+    @abstractmethod
+    def doAauthentication(self, login: str):
+        pass
 
 
 
