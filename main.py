@@ -75,10 +75,16 @@ def execute_application():
     InternetPaymentService.payPhoneNumber()
     TerminalPaymentService.payCreditCard()
 
+    # 2
     auth = AnonymousAuthentication()
-    auth.doAauthentication("Anonim")
-    anonim = Permissions(auth)
-    anonim.getPermissions("Alex")
+    auth.doAauthentication("User")
+
+
+    anon = Permissions(auth)
+    anon.getPermissions("Alex")
+
+
+
 
 if __name__ == "__main__":
     execute_application()
