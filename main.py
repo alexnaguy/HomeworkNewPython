@@ -4,20 +4,24 @@ from copy import copy
 # Допустим у нас имеется абстрактный класс Payments и в нем есть три метода:
 # оплата WebMoney, оплата банковской карточкой и оплата по номеру телефона.
 
-class Payments(ABC):
+class WebMoneyPayments(ABC):
     @staticmethod
     @abstractmethod
     def payWebMoney():
         pass
+
+class CreditCardPayments(ABC):
     @staticmethod
     @abstractmethod
     def payCreditCard():
         pass
+
+class PhoneNumberPayments(ABC):
     @staticmethod
     @abstractmethod
     def payPhoneNumber():
         pass
-class InternetPaymentService(Payments):
+class InternetPaymentService(WebMoneyPayments, CreditCardPayments,PhoneNumberPayments):
     @staticmethod
     def payWebMoney():
         print(f" Оплата производится через Электронные деньги")
@@ -29,7 +33,7 @@ class InternetPaymentService(Payments):
         print(f"Оплата производится  по номеру телефона")
 
 
-class TerminalPaymentService(ABC):
+class TerminalPaymentService(WebMoneyPayments,CreditCardPayments):
 
     def payWebMoney():
         print(f" Оплата производится через Электронные деньги")
