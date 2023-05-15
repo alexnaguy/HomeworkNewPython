@@ -54,7 +54,7 @@ class Circle:
         raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
 
     def __hash__(self):
-        return hash((self.__radius, self.__length))
+        return hash((self.__radius))
 
 # Задание 2.
 # Создайте класс Point (точка). Для данного класса реализуйте ряд
@@ -77,7 +77,7 @@ class Point:
 # Неравенство
     def __ne__(self, other):
         if isinstance(other, Point):
-            return self.__x != other.__x or self.__y != other.__y
+            return self.__x != other.__x and self.__y != other.__y
         raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
 
 
@@ -116,9 +116,11 @@ class Point:
 # Сравнение двух квартир по стоимости (операции >, <, <=, >=).
 
 class Flat:
+
     def __init__(self, square: float):
+        PAY = 75000
         self.__square = square
-        self.__cost = square * 75000
+        self.__cost = square * PAY
 
     def __str__(self):
         return f"square: {self.__square}, cost: {self.__cost}"
@@ -161,14 +163,15 @@ class Flat:
         raise TypeError(f"Невозможно выполнить сравнение между {self.__class__.__name__} и {other.__class__.__name__}")
 
     def __hash__(self):
-        return hash((self.__square, self.__cost))
+        return hash((self.__square))
 
-def execute_application:
+def execute_application():
     # Circle
     print(f"Circle:")
     circle1 = Circle(4)
-    circle2 = Circle(6)
     circle1.check_radius(4)
+    circle2 = Circle(6)
+    circle2.check_radius(6)
     try:
         print("Проверка на равенство:", circle1 == circle2)
         print("Проверка на не равенство:", circle1 != circle2)
