@@ -64,24 +64,21 @@ class FacebookAuthentication:
         print(f"Регистрация на Faebook пользователя {login}")
 
 class Permissions:
-    def __init__(self, auth: AnonymousAuthentication):
+    def __init__(self, auth: Authentication):
         self.__auth = copy(auth)
 
     def getPermissions(self, login: str):
         self.__auth.doAauthentication(login)
 
-def execute_application:
-
+def execute_application():
 
     InternetPaymentService.payPhoneNumber()
     TerminalPaymentService.payCreditCard()
 
-    user_anon = AnonymousAuthentication()
-    user_anon.doAauthentication("Anon")
-    print(f"После разрешения:")
-
-    user = Permissions(user_anon)
-    user.getPermissions("Alex")
+    auth = AnonymousAuthentication()
+    auth.doAauthentication("Anonim")
+    anonim = Permissions(auth)
+    anonim.getPermissions("Alex")
 
 if __name__ == "__main__":
     execute_application()
