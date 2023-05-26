@@ -60,7 +60,59 @@ class Fraction:
         return self.numerator * other.denominator >= other.numerator * self.denominator
 
 
+# +
+    def __add__(self, other):
+        if isinstance(other, int):
+            other = Fraction(other, 1)
+        self.__is_fraction(other)
+        new_numerator = self.__numerator * other.__denominator + other.__numerator * self.__denominator
+        self.__easy_fraction(other)
+        new_denominator = self.__denominator * other.__denominator
+        self.__int_result()
+        if new_numerator % new_denominator == 0:
+            res = new_numerator / new_denominator
+            return round(res)
+        return (f"{new_numerator} / {new_denominator}")
 
+
+#-
+    def __sub__(self, other):
+        if isinstance(other, int):
+            other = Fraction(other, 1)
+        self.__is_fraction(other)
+        new_numerator = self.__numerator * other.__denominator - other.__numerator * self.__denominator
+        new_denominator = self.__denominator * other.__denominator
+        if new_numerator % new_denominator == 0:
+            res = new_numerator / new_denominator
+            return round(res)
+        return (f"{new_numerator} / {new_denominator}")
+# *
+    def __mul__(self, other):
+        if isinstance(other, int):
+            other = Fraction(other, 1)
+        self.__is_fraction(other)
+        new_numerator = self.__numerator * other.__numerator
+        new_denominator = self.__denominator * other.__denominator
+        self.__int_result()
+        if new_numerator % new_denominator == 0:
+            res = new_numerator / new_denominator
+            return round(res)
+        return (f"{new_numerator} / {new_denominator}")
+
+
+# /
+    def __truediv__(self, other):
+        if isinstance(other, int):
+            other = Fraction(other, 1)
+        self.__is_fraction(other)
+        new_numerator = self.__numerator * other.__denominator
+        self.__easy_fraction(other)
+        new_denominator = self.__denominator * other.__numerator
+        self.__int_result()
+        if new_numerator % new_denominator == 0:
+            res = new_numerator / new_denominator
+            return round(res)
+        return (f"{new_numerator} / {new_denominator}")
 
 
 
