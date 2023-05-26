@@ -40,6 +40,33 @@ class Fraction:
         return f"{self.__numerator} / {self.__denominator}"
 
 
+# Сравнение дробей
+    def __hash__(self):
+        return hash(self.__numerator, self.__denominator)
+
+    def __eq__(self, other):
+        return self.numerator * other.denominator == other.numerator * self.denominator
+
+    def __lt__(self, other):
+        return self.numerator * other.denominator < other.numerator * self.denominator
+
+    def __le__(self, other):
+        return self.numerator *  other.denominator <= other.numerator *  self.denominator
+
+    def __gt__(self, other):
+        return self.numerator *  other.denominator > other.numerator *  self.denominator
+
+    def __ge__(self, other):
+        return self.numerator * other.denominator >= other.numerator * self.denominator
+
+
+
+
+
+
+
+
+
 
 def execute_application():
     pass
