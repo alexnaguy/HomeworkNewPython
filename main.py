@@ -121,7 +121,20 @@ class Fraction:
 
 
 def execute_application():
-    pass
+    fraction1 = Fraction(6, 5)
+    fraction2 = Fraction(2, 3)
+
+    print(f"Сложение дробей: {fraction1} + {fraction2} = {fraction1 + fraction2}")
+    print(fraction1 + 4)
+
+    print(f"Вычитание дробей: {fraction2} - {fraction1} = {fraction2 - fraction1}")
+    print(f"Умножение дробей: {fraction1} * {fraction2} = {fraction1 * fraction2}")
+    fraction1 = Fraction(1, 3)
+    fraction2 = Fraction(3, 4)
+    print(f"Деление дробей: {fraction1} / {fraction2} = {fraction1 / fraction2}")
+
+    # Cравнение дробей
+    print(fraction1 < fraction2)
 
 
 
