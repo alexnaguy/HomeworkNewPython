@@ -66,3 +66,22 @@ class CashRegister:
 
     def clear(self):
         self.__retail_list.clear()
+
+
+def execute_application():
+    retail = Retailltem("носки",4, 300)
+    retail2 = Retailltem("худи",1, 5000)
+    retail3 = Retailltem("пиджак", 3, 20000)
+
+    cash_reg = CashRegister()
+    cash_reg.purchase_item(retail)
+    cash_reg.purchase_item(retail2)
+    cash_reg.purchase_item(retail3)
+    print(f"Данные товары: ")
+    cash_reg.show_iterns()
+
+    print(f"Суммарная стоимость товаров составляет: {cash_reg.get_total()} руб")
+
+if __name__ =="__main__":
+    execute_application()
+
