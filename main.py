@@ -38,4 +38,31 @@ class Retailltem:
         self.__price = price
 
     def __str__(self):
-        return f"Описание товара: {self.__description}, Количество: {self.__quantity}, Цена:{self.__price}"
+        return f"Описание товара: {self.__description}," \
+               f" Количество: {self.__quantity}," \
+               f" Цена: {self.__price}"
+
+class CashRegister:
+    def __init__(self):
+        self.__retail_list = []
+
+    def purchase_item(self, item: Retailltem):
+        if not isinstance(item,Retailltem):
+            raise TypeError (f"Недопустимый тип данных \'{item.__class__.__name__}\'. Ожидался \'RetailItem\'")
+        return self.__retail_list.append(item)
+
+
+    def get_total(self):
+        summa = 0
+        for item in self.__retail_list:
+            summa += item.price * item.quantity
+        return summa
+
+    def show_iterns(self):
+        if len(self.__retail_list) == 0:
+            print("Товары отсутствуют")
+        for item in self.__retail_list:
+            print(item)
+
+    def clear(self):
+        self.__retail_list.clear()
