@@ -47,3 +47,26 @@ class Calculator:
     def calc_int(self):
         result = int(self.__number.value, self.__number.base)
         return result
+
+
+def execute_application():
+    numb1 = Number(123)
+
+    numb2 = Number("11001",2)
+
+    calc1 = Calculator(numb1)
+    res = calc1.calc_bin()
+    print(f"При переводе числа {numb1.value} из десятичной СС в двоичную:   {res[2:]}")
+    res = calc1.calc_hex()
+    print(f"При переводе числа {numb1.value} из десятичной СС в шестнадцатеричную:   {res[2:]}")
+    calc2 = Calculator(numb2)
+    res = calc2.calc_int()
+    print(f"При переводе числа {numb2.value} из  СС c основанием {numb2.base} в десятичную:  {res}")
+
+
+
+
+
+
+if __name__ == "__main__":
+    execute_application()
