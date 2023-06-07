@@ -140,11 +140,73 @@ class JsonFraction:
                     "Знаменатель": fraction.denominator,
 
                 })
+    @staticmethod
+    def from_json(data):
+        obj = json.loads(data)
+        return obj
+
+class Time:
+    def __init__(self, hours, minutes, seconds):
+        self.__hours = hours
+        self.__minutes = minutes
+        self.__seconds = seconds
+
+    @property
+    def hours(self):
+        return self.__hours
+
+    @property
+    def minutes(self):
+        return self.__minutes
+
+    @property
+    def seconds(self):
+        return self.__seconds
+
+    @classmethod
+    def create_time(cls, hour: int, minute: int, second: int):
+        # TODO: перевести часы, минуты, секунды -> секунды
+        pass
+
+    def __is_time(self, other):
+        if not isinstance(other, Time):
+            raise TypeError(f"Невозможно выполнить сравнение "
+                            f"между типом {self.__class__.__name__} "
+                            f"и {other.__class__.__name__}")
+
+
+class PickleTime:
+    @staticmethod
+    def save_pickle(time : Time):
+        if isinstance(time, Time):
+           return pickle.dumps({
+               "Часы": {time.hours},
+               "Минуты": {time.minutes},
+               "Ctreyls": {time.seconds}
+           })
+
+    @staticmethod
+    def from_pickle(data):
+        obj = pickle.loads(data)
+        return obj
+
+class JsonTime:
+
+    @staticmethod
+    def save_json(time : Time):
+        if isinstance(time, Time):
+           return json.dumps({
+               "Часы": {time.hours},
+               "Минуты": {time.minutes},
+               "Ctreyls": {time.seconds}
+           })
 
     @staticmethod
     def from_json(data):
         obj = json.loads(data)
         return obj
+
+
 
 
 def execute_appliation():
