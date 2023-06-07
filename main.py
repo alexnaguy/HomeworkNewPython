@@ -50,3 +50,21 @@ class PicklePlane:
     def from_pickle(data):
         obj = pickle.loads(data)
         return obj
+
+
+class JsonPlane:
+
+    @staticmethod
+    def save_json(plane: Plane):
+        if isinstance(plane, Plane):
+            return json.dumps({
+                    "Модель": plane.model,
+                    "Длина": plane.length,
+                    "Вес": plane.weight,
+                    "Пассажиры": plane.passengers,
+                })
+
+    @staticmethod
+    def from_json(data):
+        obj = json.loads(data)
+        return obj
