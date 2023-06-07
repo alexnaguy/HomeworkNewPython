@@ -23,3 +23,13 @@ class Plane:
     @property
     def passengers(self):
         return self.__passengers
+
+    def __str__(self):
+        return f"Модель: {self.__model}\""\
+               f"Длина: {self.__length}\"" \
+               f"Вес: {self.__weight} \"" \
+               f"Пассажиры: {self.__passengers}"
+
+    def to_dict(self):
+        return {"Модель самолета": {self.__model}, "Длина": {self.__length},
+                "Вес": {self.__weight}, "Пассажиры": {self.__passengers} }
