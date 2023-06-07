@@ -33,3 +33,20 @@ class Plane:
     def to_dict(self):
         return {"Модель самолета": {self.__model}, "Длина": {self.__length},
                 "Вес": {self.__weight}, "Пассажиры": {self.__passengers} }
+
+
+class PicklePlane:
+    @staticmethod
+    def save_pickle(plane: Plane):
+        if isinstance(plane, Plane):
+            return pickle.dumps({
+                    "Модель": plane.model,
+                    "Длина": plane.length,
+                    "Вес": plane.weight,
+                    "Пассажиры": plane.passengers,
+                })
+
+    @staticmethod
+    def from_pickle(data):
+        obj = pickle.loads(data)
+        return obj
