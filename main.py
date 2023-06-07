@@ -174,3 +174,105 @@ class JsonBookAdapter:
     def from_json(data):
         obj = json.loads(data)
         return obj
+
+# Задание 3
+# К уже реализованному классу «Стадион» добавьте
+# возможность упаковки и распаковки данных с использованием json и pickle.
+
+class Stadion:
+
+    def __init__(self, name: str = None,year_open: int = None, country: str = None,
+                 city: str = None, capacity: str = None):
+        self.__name = name
+        self.__year_open = year_open
+        self.__country = country
+        self.__city = city
+        self.__capacity = capacity
+
+
+    def __str__(self):
+        return f"Название стадиона: {self.__name} \n" \
+               f"Год открытия: {self.__year_open} \n" \
+               f"Страна: {self.__country} \n" \
+               f"Город: {self.__city} \n" \
+               f"Вместимость: {self.__capacity}"
+
+
+# Название стадиона
+    @property
+    def name(self):
+        return self.__name
+    @name.setter
+    def name(self, name: str):
+        self.__name = name
+
+#Год открытия
+    @property
+    def year_open(self):
+        return self.__year_open
+
+    @year_open.setter
+    def year_open(self, year_open: int):
+        self.__year_open = year_open
+
+#Страна
+
+    @property
+    def country(self):
+        return self.__country
+    @country.setter
+    def country(self, country: str):
+        self.__country = country
+
+#Город
+    @property
+    def city(self):
+        return self.__city
+
+    @city.setter
+    def city(self, city: str):
+        self.__city = city
+
+#Вместимость
+    @property
+    def capacity(self):
+        return self.__capacity
+
+    @capacity.setter
+    def capacity(self, capacity: str):
+        self.__capacity = capacity
+
+class PickleStadionAdapter:
+
+    @staticmethod
+    def save_pickle(stadion: Stadion):
+        if isinstance(stadion, Stadion):
+            return pickle.dumps({
+                    "Название cтадиона": stadion.name,
+                    "Год открытия": stadion.year_open,
+                    "Страна": stadion.country,
+                    "Город": stadion.city,
+                    "Вместимость": stadion.capacity,
+                })
+
+    @staticmethod
+    def from_pickle(data):
+        obj = pickle.loads(data)
+        return obj
+
+class JsonStadionAdapter:
+
+    def save_json(stadion: Stadion):
+        if isinstance(stadion, Stadion):
+            return json.dumps({
+                    "Название cтадиона": stadion.name,
+                    "Год открытия": stadion.year_open,
+                    "Страна": stadion.country,
+                    "Город": stadion.city,
+                    "Вместимость": stadion.capacity,
+                })
+
+    @staticmethod
+    def from_pickle(data):
+        obj = json.loads(data)
+        return obj
