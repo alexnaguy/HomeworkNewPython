@@ -276,3 +276,48 @@ class JsonStadionAdapter:
     def from_pickle(data):
         obj = json.loads(data)
         return obj
+
+def execute_application():
+    #Cer
+    car = Car("Mersedes-Benz","Germany", "220")
+    res = PickleCarAdapter.save_pickle(car)
+    print(f"При сериализации объекта Car через Pickle получилось {res}")
+    obj = PickleCarAdapter.from_pickle(res)
+    print(f"После десериализации объекта получилось {obj}")
+
+    res = JsonCarAdapter.save_json(car)
+    print(f"При сериализации объекта Car через Json получилось {res}")
+    obj = JsonCarAdapter.from_json(res)
+    print(obj)
+    print(f"После десериализации объекта получилось {obj}")
+    print()
+    # Book
+    book = Book("Идиот",1887,"роман","Федор Достоевский")
+    res = PickleBookAdapter.save_pickle(book)
+    print(f"При сериализации объекта Book через Pickle получилось {res}")
+    obj = PickleBookAdapter.from_pickle(res)
+    print(f"После десериализации объекта получилось {obj}")
+
+    # Book
+    res = JsonBookAdapter.save_json(book)
+    print(f"При сериализации объекта Book через Json получилось {res}")
+    obj = JsonBookAdapter.from_json(res)
+    print(f"После десериализации объекта получилось {obj}")
+    print()
+    # Stadion
+    stadion = Stadion()
+    res = PickleStadionAdapter.save_pickle(stadion)
+    print(f"При сериализации объекта Stadion через Pickle получилось {res}")
+    obj = PickleStadionAdapter.from_pickle(res)
+    print(f"После десериализации объекта получилось {obj}")
+
+    res = JsonStadionAdapter.save_json(stadion)
+    print(f"При сериализации объекта Stadion через Json получилось {res}")
+    obj = JsonStadionAdapter.from_pickle(res)
+    print(f"После десериализации объекта получилось {obj}")
+
+
+if __name__ == "__main__":
+    execute_application()
+
+
