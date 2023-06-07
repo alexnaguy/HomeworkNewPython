@@ -160,8 +160,18 @@ def execute_appliation():
     print(f"При сериализации объекта получилось {res}")
     obj = JsonPlane.from_json(res)
     print(f"После десериализации объекта через Json получилось {obj}")
+    print()
+    #Задача 3
+    fract1 = Fraction(4, 9)
+    res = PickleFraction.save_pickle(fract1)
+    print(f"При сериализации объекта Fraction через Pickle получилось {res}")
+    obj = PickleFraction.from_pickle(res)
+    print(f"После десириализации {obj}")
 
-
+    res = JsonFraction.save_json(fract1)
+    print(f"При сериализации объекта Fraction через Json получилось {res}")
+    obj = JsonFraction.from_json(res)
+    print(f"После десириализации {obj}")
 
 
 
