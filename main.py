@@ -87,3 +87,90 @@ class JsonCarAdapter:
     def from_json(data):
         obj = json.loads(data)
         return obj
+
+# Задание 2
+# К уже реализованному классу «Книга» добавьте возможность упаковки
+# и распаковки данных с использованием json и pickle.
+
+class Book:
+
+    def __init__(self,name:str, year_publish : int,style : str, author: str):
+        self.__name = name
+        self.__year_publish = year_publish
+        self.__style = style
+        self.__author = author
+
+
+    def __str__(self):
+        return f"Название книги: {self.__name} \n" \
+               f"Год издательтва: {self.__year_publish} \n" \
+               f"Жанр: {self.__style} \n" \
+               f"Автор: {self.__author}\n" \
+#Геттер сеттеры
+
+# Назавание книги
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self,name: str ):
+        self.__name = name
+
+# Год
+    @property
+    def year_publish(self):
+        return self.__year_publish
+
+# Жанр
+    @property
+    def style(self):
+        return self.__style
+
+    @style.setter
+    def style(self, style: str):
+        self.__style = style
+
+# Автор
+    @property
+    def author(self):
+        return self.__author
+
+    @author.setter
+    def author(self, author: str):
+        self.__author = author
+
+class PickleBookAdapter:
+
+    @staticmethod
+    def save_pickle(book: Book):
+        if isinstance(book, Book):
+            return pickle.dumps({
+                    "Название книги": book.name,
+                    "Год издания": book.year_publish,
+                    "Жанр": book.style,
+                    "Автор": book.author,
+                })
+
+    @staticmethod
+    def from_pickle(data):
+        obj = pickle.loads(data)
+        return obj
+
+
+class JsonBookAdapter:
+
+    @staticmethod
+    def save_json(book: Book):
+        if isinstance(book, Book):
+            return json.dumps({
+                    "Название книги": book.name,
+                    "Год издания": book.year_publish,
+                    "Жанр": book.style,
+                    "Автор": book.author,
+                })
+
+    @staticmethod
+    def from_json(data):
+        obj = json.loads(data)
+        return obj
