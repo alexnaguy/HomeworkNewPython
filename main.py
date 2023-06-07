@@ -235,6 +235,17 @@ def execute_appliation():
     obj = JsonFraction.from_json(res)
     print(f"После десириализации {obj}")
 
+    #Задача 4
+    time = Time(11,45,27)
+    res = PickleTime.save_pickle(time)
+    print(f"При сериализации объекта Time через Pickle получилось {res}")
+    obj = PickleTime.from_pickle(res)
+    print(f"После десириализации {obj}")
+
+    res = JsonTime.save_json(time)
+    print(f"При сериализации объекта Time через Json получилось {res}")
+    obj = JsonTime.from_json(res)
+    print(f"После десириализации {obj}")
 
 
 if __name__ == "__main__":
