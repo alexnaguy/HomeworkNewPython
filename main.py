@@ -9,15 +9,18 @@ add_data(data_dict, 'Japan', 'Tokyo')
 print(data_dict)
 
 # Редактируем данные
-edit_data(data_dict, 'Russia', 'Saint Petersburg')
+print(f"После редактирования:")
+update_data(data_dict, 'Russia', 'Saint-Petersburgssss')
 print(data_dict)
+
 # Сохраняем данные в файл
-file_name = "country_new"
-with open(file_name, 'w') as write_file:
+file_name = "data_country.json"
+with open(file_name,"w") as write_file:
     json.dump(data_dict, write_file)
 
 # Загружаем данные из файла
 loaded_data = load_data(file_name)
+print(loaded_data)
 
 #Выводим загруженные данные
 print(f"Загруженные данные:")

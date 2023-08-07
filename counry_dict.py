@@ -4,8 +4,8 @@ def add_data(data_dict, country, capital):
 
     data_dict[country] = capital
 
-def edit_data(data_dict, country, new_capital):
-    if country in data_dict:
+def update_data(data_dict, country, new_capital):
+    if country in data_dict.keys():
         data_dict[country] = new_capital
 
 def save_data(data_dict, filename):
