@@ -1,7 +1,7 @@
 import json
 
 def add_data(data_dict, country, capital):
-    data_dict = {}
+
     data_dict[country] = capital
 
 def edit_data(data_dict, country, new_capital):
@@ -9,8 +9,8 @@ def edit_data(data_dict, country, new_capital):
         data_dict[country] = new_capital
 
 def save_data(data_dict, filename):
-    with open(filename, 'w') as file:
-        json.dump(data_dict, file)
+    with open(filename, 'w') as write_file:
+        json.dump(data_dict,write_file)
 
 def load_data(filename):
     with open(filename, 'r') as file:
